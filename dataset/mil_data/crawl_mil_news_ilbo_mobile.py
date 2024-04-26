@@ -19,7 +19,7 @@ articleNumPerPage = 49000
 # articleNumPerPage = 20
 
 
-f = open('./mil_news_data_ilbo.txt', 'w')
+f = open('./mil_news_data_ilbo2.txt', 'w')
 
 # 한글은 이렇게 인코딩되어 나타남
 res = requests.get("https://kookbang.dema.mil.kr/newsWeb/m/ATCE_CTGR_0010010000/list.do", verify=False)
@@ -29,6 +29,11 @@ driver.get("https://kookbang.dema.mil.kr/newsWeb/m/ATCE_CTGR_0010010000/list.do"
 htmlCode = res.text
 
 soup = BeautifulSoup(htmlCode, 'html.parser')
+
+for articleNum in range(1, 480) :
+    driver.find_element(By.XPATH, '//*[@id="more_gisa"]').click()
+    time.sleep(1)
+
 
 for articleNum in range(1, articleNumPerPage+1):
     print('articleNum : '+str(articleNum))
@@ -44,6 +49,7 @@ for articleNum in range(1, articleNumPerPage+1):
     
     selectElement = '#listForm > ul > li:nth-child('+str(articleNum)+') > a > div.basic_list_1 > div.tit > h3'
     #listForm > ul > li:nth-child(20) > a > div.basic_list_1 > div.tit > h3
+    #listForm > ul > li:nth-child(5295) > a > div.basic_list_1 > div.tit > h3
     
     #container > div > div.article_body > div.article_body_main > ul > li:nth-child(2) > a > div.txt > h3
     #container > div > div.article_body > div.article_body_main > ul > li:nth-child(1) > a > div > h3
