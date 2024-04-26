@@ -12,7 +12,7 @@ urllib3.disable_warnings()
 pageLimit = 204
 articleNumPerPage = 10
 
-f = open('./mil_data_raw.txt', 'w')
+f = open('./dataset/mil_data/mil_data_raw.txt', 'w')
 
 for pageNum in range(1, pageLimit): # 1에서 100까지 10씩 증가 (1, 11, 21, ..., 91)
     print('pageNum : '+str(pageNum))
