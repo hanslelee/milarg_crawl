@@ -1,8 +1,10 @@
 import json
 import pandas as pd
 
-json_fn = './ynat-v1.1_dev.json'
-result_tsv_fn = 'dev.tsv'
+# json_fn = './ynat-v1.1_test.json'
+json_fn = './ynat-v1.1_train.json'
+# result_tsv_fn = 'ynat_test.tsv'
+result_tsv_fn = 'ynat_train.tsv'
 
 with open(json_fn, mode='rt', encoding='utf-8-sig') as f:
     train_dataset = json.load(f)
